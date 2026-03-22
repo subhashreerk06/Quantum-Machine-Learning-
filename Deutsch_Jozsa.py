@@ -8,14 +8,12 @@ def deutsch_jozsa_oracle(n: int, oracle_type: str) -> QuantumCircuit:
     Build an oracle for Deutsch-Jozsa algorithm.
 
     Parameters
-    ----------
     n : int
         Number of input qubits.
     oracle_type : str
         "constant" or "balanced"
 
     Returns
-    -------
     QuantumCircuit
         Oracle circuit acting on n input qubits + 1 ancilla.
     """
@@ -28,7 +26,7 @@ def deutsch_jozsa_oracle(n: int, oracle_type: str) -> QuantumCircuit:
             oracle.x(n)  # flip ancilla for all inputs
 
     elif oracle_type == "balanced":
-        # Balanced oracle:
+        # Balanced oracle
         # Choose a nonzero bitstring b, and define f(x) = b·x mod 2
         # This guarantees exactly half 0s and half 1s.
         b = [random.randint(0, 1) for _ in range(n)]
